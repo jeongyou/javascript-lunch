@@ -89,11 +89,11 @@ const ADD_BUTTON = {
 };
 const IMAGE = /* @__PURE__ */ new Map([
   ["한식", "category-korean.png"],
-  ["중식", "../public/category-chinese.png"],
-  ["일식", "../public/category-japanese.png"],
-  ["양식", "../public/category-western.png"],
-  ["아시안", "../public/category-asian.png"],
-  ["기타", "../public/category-etc.png"]
+  ["중식", "category-chinese.png"],
+  ["일식", "category-japanese.png"],
+  ["양식", "category-western.png"],
+  ["아시안", "category-asian.png"],
+  ["기타", "category-etc.png"]
 ]);
 const RESTAURANTS = [
   {
