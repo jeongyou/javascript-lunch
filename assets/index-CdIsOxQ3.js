@@ -88,7 +88,7 @@ const ADD_BUTTON = {
   content: "추가하기"
 };
 const IMAGE = /* @__PURE__ */ new Map([
-  ["한식", "../public/category-korean.png"],
+  ["한식", "category-korean.png"],
   ["중식", "../public/category-chinese.png"],
   ["일식", "../public/category-japanese.png"],
   ["양식", "../public/category-western.png"],
