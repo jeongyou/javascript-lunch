@@ -162,6 +162,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  width: 100%;
 }
 
 .restaurant__name {
@@ -305,4 +306,53 @@ input[name='link'] {
   background: var(--primary-color);
 
   color: var(--grey-100);
+}
+
+.tab-container {
+  display: flex;
+  padding: 0px 16px 0px 16px;
+}.favorite-star {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.titleStar__box {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: space-between;
+}
+.restaurant__link {
+  display: none;
+}
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  color: var(--grey-300);
+  border-bottom: 2px solid var(--grey-300);
+}
+.tab.active {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+}
+.restaurant__detail .restaurant {
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+.restaurant__detail .restaurant__description {
+  display: flex;
+}
+.restaurant__detail .restaurant__link {
+  display: flex;
+}
+.restaurant__detail .favorite-star {
+  display: flex;
+}
+.restaurant__detail .titleStar__box .favorite-star {
+  position: absolute;
+  top: 50px;
+  right: 16px;
 }

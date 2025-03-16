@@ -2,22 +2,42 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>점심 뭐 먹지</title>
-    <script type="module" crossorigin src="/javascript-lunch/assets/index-BPjKmqzV.js"></script>
-    <link rel="stylesheet" crossorigin href="/javascript-lunch/assets/index-DNpedCez.css">
+    <script type="module" crossorigin src="/javascript-lunch/assets/index-Bl5X8K5D.js"></script>
+    <link rel="stylesheet" crossorigin href="/javascript-lunch/assets/index-C8O0qnmc.css">
   </head>
 
   <body>
-    <div id="app">
-
+    <div id="app">
       <main>
-        <!-- 음식점 목록 -->
+        <div class="tab-container text-body"></div>
+
+        <section class="restaurant-filter-container"></section>
+
         <section class="restaurant-list-container">
           <ul class="restaurant-list"></ul>
         </section>
+        <template id="new-restaurant-modal-template">
+          <div class="modal new-restaurant-modal">
+            <div class="modal-backdrop"></div>
+            <div class="modal-container">
+              <h2 class="modal-title text-title">새로운 음식점</h2>
+              <form id="new-restaurant-form"></form>
+            </div>
+          </div>
+        </template>
+
+        <template id="restaurant-detail-modal-template">
+          <div class="modal restaurant-detail-modal">
+            <div class="modal-backdrop"></div>
+            <div class="modal-container">
+              <div id="restaurant-detail-content"></div>
+            </div>
+          </div>
+        </template>
       </main>
-    </div>
+    </div>
   </body>
 </html>
