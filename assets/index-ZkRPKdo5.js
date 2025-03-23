@@ -215,7 +215,6 @@ const restaurantStore = initRestaurantStore();
 function addRestaurant(newRestaurant) {
   restaurantStore.push(newRestaurant);
   localStorage.setItem("restaurantStore", JSON.stringify(restaurantStore));
-  console.log(restaurantStore);
 }
 function getNextRestaurantId() {
   return restaurantStore.length > 0 ? Math.max(...restaurantStore.map((item) => item.id)) + 1 : 1;
@@ -243,7 +242,7 @@ function deleteRestaurant(restaurantId) {
 }
 function createFavoriteStar(fieldName) {
   const dataIdAttr = fieldName.dataId ? `data-id="${fieldName.dataId}"` : "";
-  const favoriteStar = `<img src="${fieldName.inactiveSrc}" class="${fieldName.className}" ${dataIdAttr}>`;
+  const favoriteStar = `<img src="${fieldName.inactiveSrc}" class="${fieldName.className}" ${dataIdAttr} alt="자주 가는 음식점 아이콘">`;
   return favoriteStar;
 }
 function createRestaurantItem({ id, category, name, distance, description, link, isFavorite }) {
@@ -418,17 +417,16 @@ function handleRestaurantClick(event, openModal) {
   const target = event.target;
   const restaurantItem = target.closest(".restaurant");
   if (!restaurantItem) return;
-  const restaurantId = restaurantItem.getAttribute("data-id") ? Number(restaurantItem.getAttribute("data-id")) : 0;
-  const altValue = ((_a = restaurantItem.querySelector(".category-icon")) == null ? void 0 : _a.getAttribute("alt")) || "";
-  console.log(altValue);
-  const restaurantName = ((_b = restaurantItem.querySelector(".restaurant__name")) == null ? void 0 : _b.textContent) || "";
-  const restaurantDistance = ((_c = restaurantItem.querySelector(".restaurant__distance")) == null ? void 0 : _c.textContent) || "";
-  const numericValue = ((_d = restaurantDistance.match(/\d+/)) == null ? void 0 : _d[0]) || "";
-  const restaurantDescription = ((_e = restaurantItem.querySelector(".restaurant__description")) == null ? void 0 : _e.textContent) || "";
-  const restaurantImage = ((_f = restaurantItem.querySelector(".category-icon")) == null ? void 0 : _f.getAttribute("src")) || "";
+  const restaurantId = Number(restaurantItem.getAttribute("data-id") ?? 0);
+  const altValue = ((_a = restaurantItem.querySelector(".category-icon")) == null ? void 0 : _a.getAttribute("alt")) ?? "";
+  const restaurantName = ((_b = restaurantItem.querySelector(".restaurant__name")) == null ? void 0 : _b.textContent) ?? "";
+  const restaurantDistance = ((_c = restaurantItem.querySelector(".restaurant__distance")) == null ? void 0 : _c.textContent) ?? "";
+  const numericValue = ((_d = restaurantDistance.match(/\d+/)) == null ? void 0 : _d[0]) ?? "";
+  const restaurantDescription = ((_e = restaurantItem.querySelector(".restaurant__description")) == null ? void 0 : _e.textContent) ?? "";
+  const restaurantImage = ((_f = restaurantItem.querySelector(".category-icon")) == null ? void 0 : _f.getAttribute("src")) ?? "";
   const favoriteStar = restaurantItem.querySelector(".favorite-star");
-  const isFavorite = ((_g = favoriteStar == null ? void 0 : favoriteStar.getAttribute("src")) == null ? void 0 : _g.includes("favorite-icon-filled.png")) || false;
-  const restaurantLink = ((_h = restaurantItem.querySelector(".restaurant__link")) == null ? void 0 : _h.getAttribute("href")) || "";
+  const isFavorite = ((_g = favoriteStar == null ? void 0 : favoriteStar.getAttribute("src")) == null ? void 0 : _g.includes("favorite-icon-filled.png")) ?? false;
+  const restaurantLink = ((_h = restaurantItem.querySelector(".restaurant__link")) == null ? void 0 : _h.getAttribute("href")) ?? "";
   openModal({
     id: restaurantId,
     category: altValue,
